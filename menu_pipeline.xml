@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" ?>
+<menu name="yssm">
+	<node type="subMenu" name="Mod">
+		<node type="command" name="Check In" comment="check in" cmd="from script import checkin_UI;reload(checkin_UI);checkin_UI.create()" mode="python" option="False"></node>
+		<node type="command" name="Check Mod" comment="check Mod" cmd="from script.modeling import checkModel;reload(checkModel);checkModel.checkModel()" mode="python" option="False"></node>
+		<node type="command" name="UV Transfer" comment="UV Transfer" cmd="from script.modeling import execuvtransfer;reload(execuvtransfer);execuvtransfer.main()" mode="python" option="False"></node>
+		<node type="command" name="abSymMesh" comment="abSymMesh" cmd="abSymMesh()" mode="mel" option="False"></node>
+	</node>
+	<node type="subMenu" name="Rigging">
+		<node type="command" name="Check In" comment="Check In" cmd="from script import checkin_UI;reload(checkin_UI);checkin_UI.create()" mode="python" option="False"></node>
+	</node>
+    <node type="subMenu" name="Animation">
+    	<node type="command" name="Check In" comment="Check In" cmd="from script import checkin_UI;reload(checkin_UI);checkin_UI.create()" mode="python" option="False"></node>
+    	<node type="command" name="Reference Import" comment="Reference Import" cmd="" mode="python" option="False"></node>
+		<node type="command" name="PlayBlast" comment="PlayBlast" cmd="from script import playBlast_UI;reload(playBlast_UI);playBlast_UI.create()" mode="python" option="False"></node>
+		<node type="separator"></node>
+    </node>
+    <node type="subMenu" name="Cache">
+    	<node type="command" name="PPL Automatic" comment="PPL Automatic" cmd="" mode="python" option="False"></node>
+    	<node type="command" name="PPL Alembic Rend" comment="PPL Alembic Rend" cmd="" mode="python" option="False"></node>
+    </node>
+    <node type="subMenu" name="Lighting">
+    	<node type="command" name="Rendering Software Open" comment="Rendering Software Open" cmd="" mode="python" option="False"></node>
+    	<node type="command" name="AOV SG" comment="AOV SG" cmd="" mode="python" option="False"></node>
+    </node>
+    
+
+</menu>
+

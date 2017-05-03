@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" ?>
+<menu name="y">
+    <node type="subMenu" name="Modeling">
+		<node type="command" name="Check Model" comment="Check Model" cmd="import scripts.modeling.checkModel;scripts.modeling.checkModel.checkModel()" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="UV Transfer" comment="UV Transfer" cmd="from scripts.modeling import execuvtransfer;execuvtransfer.main()" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Display Shader Icon On" comment="Display Shader Icon On" cmd="import pymel.core as pm;pm.mel.eval('renderThumbnailUpdate 1')" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Display Shader Icon Off" comment="Display Shader Icon Off" cmd="import pymel.core as pm;pm.mel.eval('renderThumbnailUpdate 0')" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="abSymMesh" comment="abSymMesh" cmd="abSymMesh()" mode="mel" option="False"></node>
+		<node type="separator"></node>
+    </node>
+    <node type="subMenu" name="Surfacing">
+		<node type="command" name="Check Surfacing Scene" comment="Check Surfacing Scene" cmd="from scripts.surfacing import qcsurfacing;reload(qcsurfacing);qcsurfacing.main()" mode="python" option="False"></node>
+    </node>
+    <node type="subMenu" name="Rigging">
+		<node type="command" name="Check Rigging Remove Layers" comment="Check Rigging Remove Layers" cmd="from scripts.rigging import qcrigging;qcrigging.main()" mode="python" option="False"></node>
+		<node type="command" name="Check Rigging" comment="Check Rigging" cmd="from scripts.rigging import qcrigging;qcrigging.main(removeDisplayLayer=False)" mode="python" option="False"></node>
+    </node>
+    <node type="subMenu" name="Animation">
+	    <node type="command" name="Check Animation Scene" comment="Check Animation Scene" cmd="from scripts.animation import qcanimation;qcanimation.main()" mode="python" option="False"></node>
+	    <node type="separator"></node>
+	    <node type="command" name="Replace Namespace to Asset Name" comment="Replace Namespace to Asset Name" cmd="from scripts.general import reference;reload(reference);r=reference.Reference();r.get_stream_logger();r.replaceAllNamespaces('_RIG_HI','')" mode="python" option="False"></node>
+	    <node type="separator"></node>	    
+		<node type="command" name="Playblast Full Size" comment="Playblast Full Size" cmd="from scripts.animation import playblastzslm;playblastzslm.main()" mode="python" option="False"></node>
+		<node type="command" name="Playblast Proxy Size" comment="Playblast Proxy Size" cmd="from scripts.animation import playblastzslm;playblastzslm.main(imageScale=.5)" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Switch Selected Refs to RIG_LW" comment="Switch Selected Refs to RIG_LW" cmd="from scripts.general import reference;reload(reference);r=reference.Reference();r.get_stream_logger();r.replace_selected_reference_file_names(['_RIG_HI'],['_RIG_LW'])" mode="python" option="False"></node>
+		<node type="command" name="Switch Selected Refs to RIG_HI" comment="Switch Selected Refs to RIG_HI" cmd="from scripts.general import reference;reload(reference);r=reference.Reference();r.get_stream_logger();r.replace_selected_reference_file_names(['_RIG_LW'],['_RIG_HI'])" mode="python" option="False"></node>
+		<node type="command" name="Switch All Refs to RIG_LW" comment="Switch All Refs to RIG_LW" cmd="from scripts.general import reference;reload(reference);r=reference.Reference();r.get_stream_logger();r.replace_all_reference_file_names(['_RIG_HI'],['_RIG_LW'])" mode="python" option="False"></node>
+		<node type="command" name="Switch All Refs to RIG_HI" comment="Switch All Refs to RIG_HI" cmd="from scripts.general import reference;reload(reference);r=reference.Reference();r.get_stream_logger();r.replace_all_reference_file_names(['_RIG_LW'],['_RIG_HI'])" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Close Opened Windows" comment="Close Opened Windows" cmd="import scripts.general.remove_opened_windows as remove_opened_windows;import scripts.general.panel as panel;panel.Panel().set_outliner_persp();remove_opened_windows.main()" mode="python" option="False"></node>
+    </node>
+    <node type="subMenu" name="Cache">
+        <node type="separator"></node>
+        <node type="command" name="Cache Tool" comment="Cache Tool" cmd="import scripts.general.cacheview;reload(scripts.general.cacheview);scripts.general.cacheview.main()" mode="python" option="False"></node>
+    </node>
+    <node type="subMenu" name="General">
+    	<node type="command" name="Remove un-selected Reference" comment="Remove Un-selected Reference" cmd="from scripts.general.reference import Reference;r=Reference();r.get_stream_logger();r.remove_ref_node_exclude_selection()" mode="python" option="False"></node>
+    	<node type="command" name="Unload un-selected Reference" comment="Unload Un-selected Reference" cmd="from scripts.general.reference import Reference;r=Reference();r.get_stream_logger();r.unload_ref_node_exclude_selection()" mode="python" option="False"></node>
+    	<node type="separator"></node>
+    	<node type="command" name="Remove un-selected Mesh" comment="Remove un-selected Mesh" cmd="from scripts.general import removeunselectedmeshes;removeunselectedmeshes.main()" mode="python" option="False"></node>
+    	<node type="separator"></node>
+    </node>
+    <node type="subMenu" name="Lighting">
+    	<node type="command" name="Set Texture to Server" comment="" cmd="from scripts.lighting.env import Env;Env().setServer()" mode="python" option="False"></node>
+        <node type="command" name="Set Texture to Local" comment="" cmd="from scripts.lighting.env import Env;Env().setLocal()" mode="python" option="False"></node>
+    	<node type="command" name="File Texture Manager" comment="File Texture Manager" cmd="FileTextureManager()" mode="mel" option="False"></node>
+    	<node type="command" name="Subdivision Settings" comment="Subdivision Settings" cmd="from scripts.lighting import subdivisionsettingview;subdivisionsettingview.main()" mode="python" option="False"></node>
+    	<node type="command" name="Polygon Render Settings" comment="Polygon Render Settings" cmd="from scripts.lighting import rendersettingview;rendersettingview.main()" mode="python" option="False"></node>
+    	<node type="command" name="Submit To RenderFarm" comment="Submit To RenderFarm" cmd="from scripts.lighting import renderSubmission;renderSubmission.main()" mode="python" option="False"></node>
+        <node type="command" name="Unload un-selected Reference" comment="Unload Un-selected Reference" cmd="from scripts.general.reference import Reference;r=Reference();r.get_stream_logger();r.unload_ref_node_exclude_selection()" mode="python" option="False"></node>    	
+		<node type="command" name="Remove Failed Reference Edit" comment="Remove Failed Reference Edit" cmd="import scripts.general.reference;reload(scripts.general.reference);scripts.general.reference.remove_all_failed_edits()" mode="python" option="False"></node>
+		<node type="command" name="Get Missed Frames" comment="Get Missed Frames" cmd="from scripts.lighting import missframesview;missframesview.main()" mode="python" option="False"></node>    	
+		<node type="command" name="Add AOVs" comment="Add AOVs" cmd="from scripts.lighting import aovview;reload(aovview);aovview.main()" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Lock Selected" comment="Lock Selected" cmd="from scripts.general import locker;locker.lockSels(True)" mode="python" option="False"></node>
+		<node type="command" name="unLock Selected" comment="unLock Selected" cmd="from scripts.general import locker;locker.lockSels(False)" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Apply Rendering Preset Bg" comment="Apply Rendering Preset Bg" cmd="from scripts.general import preset;reload(preset);preset.Preset().applyRenderPreset('zslm_bg')" mode="python" option="False"></node>
+		<node type="command" name="Apply Rendering Preset Chr" comment="Apply Rendering Preset Chr" cmd="from scripts.general import preset;reload(preset);preset.Preset().applyRenderPreset('zslm_chr')" mode="python" option="False"></node>
+		<node type="command" name="Apply Rendering Preset FuZhu" comment="Apply Rendering Preset FuZhu" cmd="from scripts.general import preset;reload(preset);preset.Preset().applyRenderPreset('zslm_fuzhu')" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Light Copy Attr" comment="Light Copy Attr" cmd="from scripts.general import copyAttr;copyAttr.ui().winShow()" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Check Lighting Scene" comment="Check Lighting Scene" cmd="from scripts.lighting import qclighting;qclighting.main(removeDisplayLayer=False)" mode="python" option="False"></node>
+		<node type="separator"></node>
+		<node type="command" name="Display Shader Icon On" comment="Display Shader Icon On" cmd="import pymel.core as pm;pm.mel.eval('renderThumbnailUpdate 1')" mode="python" option="False"></node>
+		<node type="command" name="Display Shader Icon Off" comment="Display Shader Icon Off" cmd="import pymel.core as pm;pm.mel.eval('renderThumbnailUpdate 0')" mode="python" option="False"></node>
+		<node type="separator"></node>		
+    </node>
+    <node type="subMenu" name="Utils">
+        <node type="command" name="Reload menu" comment="reload the Pipeline menu" cmd="import menu_pipeline;menu_pipeline.loadMenu()" mode="python" option="False"></node>
+    </node>
+</menu>
+
